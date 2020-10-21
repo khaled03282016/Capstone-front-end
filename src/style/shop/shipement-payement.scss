@@ -1,0 +1,87 @@
+.payment-information{
+    display: grid;
+    padding: 20px;
+    grid-gap: 40px;
+    input{
+        @include input-style();
+        font-size: 1.4rem;
+    }
+    .title{
+        font-size: 2rem;
+        color: $green;
+        height: 20px;
+    }
+    .card-information-wrapper{
+        display: grid;
+        grid-template-columns: [s]1fr[m]1fr[e];
+        grid-template-rows: [s]1fr[m]1fr[e] ;
+        grid-gap: 20px;
+        height: 125px;
+    }
+    .builling-adress-option{
+        font-size: 1.2rem;
+        width: 440px;
+        display: grid;
+        grid-template-columns: 280px 80px 80px;
+        
+        div{
+            display: grid;
+            grid-template-columns: 1fr 30px;
+            justify-self: start;
+            span{
+                justify-self: end;
+            }
+            .radio-check{
+                justify-self: start;
+            }
+        }
+        }
+    .builling-adress-wrapper{
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: [first-s]1fr[first-e second-s]1fr[second-e third-s]1fr[third-e];
+        grid-template-rows: [s]1fr[m]1fr[e];
+        .input-buillingStreet{
+            grid-row: s/m;
+            grid-column: first-s/third-e;
+        }
+        .input-buillingCity,
+        .input-buillingState,
+        .input-buillingZipCode{
+            grid-row: m/e;
+        }
+        .input-buillingCity{
+            grid-column: first-s/first-e;
+        }
+        .input-buillingState{
+            grid-column: second-s/second-e;
+        }
+        .input-buillingZipCode{
+            grid-column: third-s/third-e;
+        }
+    }
+    .payment{
+        justify-self: center;
+        .btn{
+            cursor: pointer;
+                        width: 220px;
+                        height: 35px;
+                        font-size: 1.7rem;
+                        border: 1px solid transparent;
+                        border-radius: 20px;
+                        transition: all 0.5s ease-in-out;
+                        background-color: black;
+                        color: $green;
+                
+                        &:active,
+                        &:focus {
+                            outline: none;
+                         }
+                
+                        &:hover {
+                                background-color:$grey;
+                                color: white;
+                            }
+        }
+    }
+}

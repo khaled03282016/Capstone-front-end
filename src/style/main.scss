@@ -1,0 +1,62 @@
+html {
+    font-size: 62.5%; // 1rem is 10px
+    font-family: 'Lato', sans-serif;
+    background-color: #f0f1f0;
+    
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    font-weight: normal;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.app-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+   
+}
+@import "./variable.scss";
+@import "./mixin.scss";
+@import "./management/form.scss";
+@import "./management/product-form.scss";
+@import "./management/management.scss";
+@import "./logo.scss";
+@import "./management/links.scss";
+@import "./management/search-product.scss";
+@import "./management/products-management.scss";
+@import "./management/auth.scss";
+@import "./nav-bar.scss";
+@import "./home.scss";
+@import "./home/list-category.scss";
+@import "./home/one-product.scss";
+@import "./home/product-information.scss";
+@import "./client-auth/signup.scss";
+@import "./shop/cart-modal.scss";
+@import "./client-auth/login.scss";
+@import "./shop/cart-shop.scss";
+@import "./shop/shipment.scss";
+@import "./shop/summary-shipment.scss";
+@import "./shop/shipment-information.scss";
+@import "./shop/shipement-payement.scss";
+@import "./shop/order-receipt.scss";
+@import "./management/orders.scss";
+@import "./management/order-details.scss";
+@import "./media-query.scss";
+
+
+
+

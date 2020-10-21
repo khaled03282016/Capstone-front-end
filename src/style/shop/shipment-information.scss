@@ -1,0 +1,51 @@
+.shipping-information-wrapper{
+    width: 90%;
+    height: 350px;
+    justify-self: center;
+    display: grid;
+    grid-template-rows: [title-s]1fr[title-e name-s]1fr[name-e street-s]1fr[street-e state-s]1fr[state-e email-s]1fr[email-e];
+    grid-template-columns: [first-s]1fr[first-e second-s]1fr[second-e third-s]1fr[third-e];
+    grid-gap: 20px;
+    input{
+        @include input-style();
+        font-size: 1.4rem;
+    }
+    .title{
+        grid-row: title-s/title-e;
+        grid-column: first-s/third-e;
+        font-size: 2rem;
+        color: $green;
+    }
+    .input-shippingName{
+        grid-row: name-s/name-e;
+        
+        justify-self: start;
+    }
+    .input-shippingLastName{
+        grid-row: name-s/name-e;
+        
+        justify-self: end;
+    }
+    .input-shippingStreet{
+        grid-row: street-s/street-e;
+        grid-column: first-s/third-e;
+    }
+    .input-shippingCity,
+    .input-shippingState,
+    .input-shippingZipCode{
+        grid-row: state-s/state-e;
+    }
+    .input-shippingCity{
+        grid-column: first-s/first-e;
+    }
+    .input-shippingState{
+        grid-column: second-s/second-e;
+    }
+    .input-shippingZipCode{
+        grid-column: third-s/third-e;
+    }
+    .input-eMail{
+        grid-row: email-s/email-e;
+        grid-column: first-s/first-e;
+    }
+}

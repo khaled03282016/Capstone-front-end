@@ -1,0 +1,49 @@
+@mixin btn-style {
+        cursor: pointer;
+        width: 50%;
+        height: 30px;
+        font-size: 1.5rem;
+        font-weight: 500;
+        border: 1px solid transparent;
+        transition: all 0.5s ease-in-out;
+        background-color: grey;
+        color: white;
+
+        &:active,
+        &:focus {
+            outline: none;
+         }
+
+        &:hover {
+                background-color: black;
+            }
+   
+}
+@mixin lable-style {
+    
+        font-size: 1.5rem;
+        padding-right: 10px;
+    
+}
+
+@mixin input-style{
+        
+                color: #42454a;
+                padding: 5px 0px;
+                width: 100%;
+                border-top: 0px;
+                border-right: 0px;
+                border-left: 0px;
+                border-bottom: 1px solid grey;
+                background-color: transparent;
+                transition: 0.5s all ease-in-out;
+                font-size: 1.1em;
+                margin-bottom: 20px;
+            
+                &:focus {
+                  outline: none;
+                  border-bottom: 1px solid rgb(61, 60, 60);
+    
+              }
+       
+}

@@ -1,0 +1,91 @@
+.information{
+    display: grid;
+    grid-template-columns: [s] 1fr [m] 1fr [e];
+    grid-template-rows: [first-s]50px[first-e second-s]50px[second-e third-s]1fr[third-e fourth-s] 50px [fourth-e fifth-s]1fr[fifth-e];
+    font-size: 1.5rem;
+    .title,
+    .price{
+        grid-row: first-s/first-e;
+    }
+    .title,
+    .category,
+    .cancel-btn{
+        grid-column: s/m;
+    }
+    .price,
+    .btn{
+        grid-column: m/e;
+    }
+    .category{
+        grid-row: second-s/second-e;
+    }
+    .sizes-availble-wrapper{
+        grid-row: third-s/third-e;
+        grid-column: s/e;
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        column-gap: 5px;
+        .size-wrapper{
+            @include btn-style();
+            font-size: 1.2rem;
+            width: 80px;
+            height: 30px;
+        }
+
+        .active{
+            font-size: 1.2rem;
+            width: 80px;
+            height: 30px;
+            font-weight: 500;
+            border: 1px solid transparent;
+            transition: all 0.5s ease-in-out;
+            background-color: black;
+            color: $green;
+        }
+    }
+    .btn,
+    .cancel-btn{
+        grid-row: fifth-s/fifth-e;
+        @include btn-style();
+        width: 100px;
+        height: 40px;
+        margin-top: 20px;
+    }
+    .btn {
+        background-color: black;
+        color: $green;
+        width: 120px;
+        &:hover {
+            color: white;
+            background-color:grey;
+        }
+    }
+    .cancel-btn {
+        background-color: grey;
+        color: white;
+        &:hover {
+            background-color: rgb(116, 8, 8);
+            color: $green;
+          }
+    }
+    .quantity{
+            grid-row: fourth-s/fourth-e;
+            color: #42454a;
+            padding: 5px 0px;
+            width: 100%;
+            border-top: 0px;
+            border-right: 0px;
+            border-left: 0px;
+            border-bottom: 1px solid grey;
+            background-color: transparent;
+            transition: 0.5s all ease-in-out;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        
+            &:focus {
+              outline: none;
+              border-bottom: 1px solid rgb(61, 60, 60);
+    }
+}
+    
+}

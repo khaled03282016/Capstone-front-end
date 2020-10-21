@@ -1,0 +1,18 @@
+.links-wrapper{
+    width: 30%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-self: center;
+    column-gap: 50px;
+    a{
+        font-size: 2rem;
+        color: grey;
+        cursor: pointer;
+        text-decoration: none;
+        
+        &:hover{
+            transition: all 0.5s ease-in-out;
+            font-size: 2.1rem;
+        }
+    }
+}

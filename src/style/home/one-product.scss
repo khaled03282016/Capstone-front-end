@@ -1,0 +1,19 @@
+.product-info-wrapper{
+    display: grid;
+    grid-template-columns: 450px 1fr;
+    justify-items: center;
+    column-gap: 20px;
+    padding-top: 50px;
+    .thumb{
+        width: 90px;
+        height: 90px;
+    }
+    .carousel-root{
+        width: 400px;
+        height: 250px;
+       .carousel-slider{
+        width: 400px;
+        height: 250px;
+       }
+    }
+    }

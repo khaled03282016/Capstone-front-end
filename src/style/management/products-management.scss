@@ -1,0 +1,29 @@
+.products-wrapper{
+        display: grid;
+        padding-top:20px;
+        padding-right: 20px;
+        row-gap: 100px;
+    img{
+        width: 200px;
+        height: 100px;
+    }
+    .images-product-wraper,
+    .product-list-wrapper{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        justify-items: center;
+        grid-gap: 20px;
+        padding-top: 50px;
+        .image-wrapper,
+        .product-item-wrapper{
+            display: grid;
+            justify-items: center;
+            width: 90%;
+            height: 100%;
+            border: 2px solid grey;
+            border-radius: 5px;
+            
+        }
+    }
+   
+}

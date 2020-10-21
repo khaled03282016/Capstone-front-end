@@ -1,0 +1,148 @@
+.cart-shop-wrapper{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-items: center;
+    
+    padding-top: 30px;
+    .right-column{
+        display: grid;
+        grid-template-columns: [s]1fr[m]1fr[e];
+        grid-template-rows: [summary-s]1fr[summary-e subtotal-s]1fr[subtotal-e tax-s]1fr[tax-e total-s]1fr[total-e  btn-s]1fr[btn-e];
+        width: 250px;
+        height: 360px;
+        font-size: 1.3rem;
+                    .under-ligne{
+                    border-bottom: 1px solid $grey; 
+                    }
+                    .summary{
+                    grid-column: s/e;
+                    grid-row: summary-s/summary-e;
+                    h1{
+                        font-size: 2rem;
+                        color: $green;
+                        padding-bottom: 20px;
+                    }
+                  }
+                  .subtotal{
+                    grid-column: s/m;
+                    grid-row: subtotal-s/subtotal-e;
+                  }
+                  .subtotal-value{
+                    grid-column: m/e;
+                    grid-row: subtotal-s/subtotal-e;
+                  }
+                  .tax{
+                    grid-column: s/m;
+                    grid-row: tax-s/tax-e;
+                  }
+                  .tax-value{
+                    grid-column: m/e;
+                    grid-row: tax-s/tax-e; 
+                  }
+                  .total{
+                    grid-column: s/m;
+                    grid-row: total-s/total-e;
+                    border-top: 1px solid $grey;
+                    border-bottom: 1px solid $grey;
+                    padding-top: 25px;
+                    padding-bottom: 15px;
+                  }
+                  .total-value{
+                    grid-column: m/e;
+                    grid-row: total-s/total-e; 
+                    border-top: 1px solid $grey;
+                    border-bottom: 1px solid $grey;
+                    padding-top: 25px;
+                    padding-bottom: 15px;
+                    font-size: 1.4rem;
+                  }
+                  .checkout{
+                      grid-column: s/e;
+                      grid-row: btn-s/btn-e;
+                      justify-self: center;
+                      padding-top: 35px;
+                      button{
+                        cursor: pointer;
+                        width: 220px;
+                        height: 35px;
+                        font-size: 1.7rem;
+                        border: 1px solid transparent;
+                        border-radius: 20px;
+                        transition: all 0.5s ease-in-out;
+                        background-color: black;
+                        color: $green;
+                
+                        &:active,
+                        &:focus {
+                            outline: none;
+                         }
+                
+                        &:hover {
+                                background-color:$grey;
+                                color: white;
+                            }
+                    }
+                  }
+    }
+    
+    .cart-shop-list-wrapper{
+        display: grid;
+        grid-gap: 40px;
+        .item-wrapper{
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-gap: 25px;
+            .image-wraper{
+                width: 200px;
+                height: 150px;
+                display: grid;
+                justify-items: center;
+                img {
+                    width: 80%;
+                    height: 80%;
+                }
+            }
+            .product-information{
+                display: grid;
+                grid-template-columns: [s]1fr[m]1fr[e];
+                grid-template-rows: [id-s]1fr[id-e titel-s]1fr[titel-e quantity-s]1fr[quantity-e btn-s]1fr[btn-e];
+                font-size: 1.2rem;
+                color: $grey;
+                .id,
+                .price{
+                    grid-row: id-s/id-e;
+                }
+                .price{
+                    padding-left: 20px;
+                }
+                .title,
+                .color{
+                    grid-row: titel-s/titel-e;
+                }
+                .quantity,
+                .size{
+                    grid-row: quantity-s/quantity-e;
+                }
+                .Remove{
+                    grid-row: btn-s/btn-e;
+                }
+                .id,.title,.quantity,.Remove{
+                    grid-column: s/m;
+                }
+                .price,.color,.size{
+                    grid-column: m/e;
+                }
+                .Remove a{
+                    cursor: pointer;
+                    text-decoration: underline;
+                    font-size: 1.2rem;
+                    color:$blue;
+                    transition: all 0.5s ease-in-out;
+                    &:hover {
+                        font-size: 1.3rem;
+                        }
+                }
+            }
+        }
+    }
+}

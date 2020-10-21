@@ -1,0 +1,54 @@
+.summary-wrapper{
+    display: grid;
+    grid-template-columns: [s]1fr[m]1fr[e];
+    grid-template-rows: [summary-s]1fr[summary-e subtotal-s]25px[subtotal-e tax-s]25px[tax-e total-s]1fr[total-e];
+    width: 250px;
+    height: 150px;
+    font-size: 1.2rem;
+                .under-ligne{
+                border-bottom: 1px solid $grey; 
+                padding-top: 10px;
+                }
+                .summary{
+                grid-column: s/e;
+                grid-row: summary-s/summary-e;
+                label{
+                    font-size: 1.8rem;
+                    color: $green;
+                }
+              }
+              .subtotal{
+                grid-column: s/m;
+                grid-row: subtotal-s/subtotal-e;
+              }
+              .subtotal-value{
+                grid-column: m/e;
+                grid-row: subtotal-s/subtotal-e;
+              }
+              .tax{
+                grid-column: s/m;
+                grid-row: tax-s/tax-e;
+              }
+              .tax-value{
+                grid-column: m/e;
+                grid-row: tax-s/tax-e; 
+              }
+              .total{
+                grid-column: s/m;
+                grid-row: total-s/total-e;
+                border-top: 1px solid $grey;
+                border-bottom: 1px solid $grey;
+                padding-top: 25px;
+                padding-bottom: 15px;
+              }
+              .total-value{
+                grid-column: m/e;
+                grid-row: total-s/total-e; 
+                border-top: 1px solid $grey;
+                border-bottom: 1px solid $grey;
+                padding-top: 25px;
+                padding-bottom: 15px;
+                font-size: 1.2rem;
+              }
+            
+}

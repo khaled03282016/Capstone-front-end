@@ -1,0 +1,20 @@
+.shipment-wrapper{
+    display: grid;
+    grid-template-columns: [s]1fr[m]1fr[e];
+    grid-template-rows: [s]1fr[m]571px[e] ;
+    padding: 30px 10px 10px 10px;
+    grid-gap: 30px;
+    .shipping-information-wrapper{
+        grid-column: s/m;
+        grid-row: s/e;
+    }
+    .summary-wrapper{
+        grid-column: m/e;
+        grid-row: s/m;
+        justify-self: center;
+    }
+    .payment-information{
+        grid-column: m/e;
+        grid-row: m/e;
+    }
+}

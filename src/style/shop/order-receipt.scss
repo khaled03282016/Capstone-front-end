@@ -1,0 +1,104 @@
+.receipt-wrapper{
+    display: grid;
+    justify-items: center;
+    font-size: 1.2rem;
+    grid-template-columns: [s]1fr[m]1fr[e];
+    grid-template-rows: [header-s]60px[header-e confirmation-s]60px[confirmation-e info-s]60px[info-e shippment-s]100px[shippment-e payment-s]1fr[payment-e summary-s]1fr[summary-e];
+    padding-top: 30px;
+    color: $grey;
+    row-gap: 40px;
+    .header{
+        color: $green;
+        font-size: 1.8rem;
+        border-bottom: 1px solid $grey;
+        padding-bottom: 10px;
+    }
+    h1{
+        color: $green;
+        font-size: 2rem;
+    }
+    .title{
+        font-size: 1.5rem;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .receipt-header{
+        grid-row: header-s/header-e;
+        grid-column: s/e;
+    }
+    .order-confirmation{
+        grid-row: confirmation-s/confirmation-e;
+        grid-column: s/e;
+    }
+    .order-information{
+        grid-row: info-s/info-e;
+        grid-column: s/e;
+        font-size: 1.3rem;
+    }
+    .shipment-information{
+        grid-row: shippment-s/shippment-e;
+        grid-column: m/e;
+        width: 50%;
+        display: grid;
+    }
+    .payment-information-wrapper{
+        grid-row: payment-s/payment-e;
+        grid-column: m/e; 
+        width: 50%;
+        display: grid;
+    }
+    .products-ordered-list-wrapper{
+        grid-row: shippment-s/summary-e;
+        grid-column: s/m;
+        display: grid;
+        grid-gap: 5px;
+        .product-ordered-wrapper{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 25px;
+            .image-wraper{
+                width: 200px;
+                height: 150px;
+                display: grid;
+                justify-items: center;
+                img {
+                    width: 100%;
+                    height:100%;
+                }
+            }
+            .product-information{
+                display: grid;
+                grid-template-columns: [s]1fr[m]1fr[e];
+                grid-template-rows: [id-s]30px[id-e description-s]30px[description-e quantity-s]30px[quantity-e color-s]30px[color-e];
+                font-size: 1.2rem;
+                color: $grey;
+                padding-top: 20px;
+                .id{
+                    grid-row: id-s/id-e;
+                    grid-column: s/e;
+                }
+                .description{
+                    grid-row: description-s/description-e;
+                    grid-column: s/e;
+                }
+                .color{
+                    grid-row: color-s/color-e;
+                    grid-column: s/e;
+                }
+                .quantity{
+                    grid-row: quantity-s/quantity-e;
+                    grid-column: s/m;
+                }
+                .size{
+                    grid-row: quantity-s/quantity-e;
+                    grid-column: m/e;
+                }
+            }
+        }
+    }
+    .summary-wrapper{
+        grid-row: summary-s/summary-e;
+        grid-column: m/e;
+        width: 50%;
+    }
+}

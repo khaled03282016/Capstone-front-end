@@ -1,0 +1,36 @@
+.orders-container{
+    display: grid;
+    padding-top: 30px;
+    grid-gap: 40px;
+    font-size: 1.1rem;
+    .orders-wrapper{
+        display: grid;
+        .titels-wrapper{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            justify-items: center;
+            padding: 10px;
+            border-bottom: 1px solid $grey;
+            font-size: 1.4rem;
+            color: $green;
+        }
+        .list-of-orders{
+            display: grid;
+            .order-wrapper{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+                justify-items: center;
+                padding: 10px;
+                border-bottom: 1px solid $grey;
+                .id{
+                    cursor: pointer; 
+                    &:hover{
+                        transition: all 0.5s ease-in-out;
+                        color: $grey;
+                    }
+                }
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,87 @@
+.shop-cart-modal-content-wrapper{
+    display: grid;
+    grid-template-columns: [s]1fr[m]1fr[e];
+    grid-template-rows: [image-s] 110px [image-e title-s] 20px [title-e description-s] 20px [description-e size-s] 20px [size-e quantity-s] 20px [quantity-e price-s] 20px [price-e buttons-s] 1fr [buttons-e];
+    justify-items: center;
+    .image-wrapper{
+        grid-row: image-s/image-e;
+        grid-column: s/e;
+    img{
+        width: 100px;
+        height: 100px;
+        }
+    }
+    .title,
+    .description,
+    .size,
+    .quantity,
+    .price{
+        grid-column: s/e;
+    }
+    
+    .title{
+        grid-row: title-s/title-e;
+    }
+    .description{
+        grid-row: description-s/description-e;
+    }
+    .quantity{
+        grid-row: quantity-s/quantity-e;
+    }
+    .size{
+        grid-row: size-s/size-e;
+    }
+    .price{
+        grid-row: price-s/price-e;
+    }
+    .check-out,
+    .view-cart{
+        grid-row: buttons-s/buttons-e;
+       
+    }
+
+    .check-out{
+        grid-column: m/e;
+        .btn{
+            cursor: pointer;
+            padding: 8px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            border: 1px solid transparent;
+            transition: all 0.5s ease-in-out;
+            background-color: black;
+            color: white;
+    
+            &:active,
+            &:focus {
+                outline: none;
+             }
+    
+            &:hover {
+                    color: $green;
+                }
+        }
+    }
+    .view-cart{
+        grid-column: s/m;
+        .btn{
+            cursor: pointer;
+            padding: 8px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            border: 1px solid transparent;
+            transition: all 0.5s ease-in-out;
+            background-color: grey;
+            color: white;
+    
+            &:active,
+            &:focus {
+                outline: none;
+             }
+    
+            &:hover {
+                    background-color: black;
+                }
+        }
+    }
+}
