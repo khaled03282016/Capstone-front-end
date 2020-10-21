@@ -81,9 +81,6 @@ export default class App extends Component {
     
   };
 
-
-
-
   getMenProducts(){
     this.setState({
         category: "Men"
