@@ -169,7 +169,7 @@ export default class App extends Component {
     })}
   
  getLoginStatus(){
-  axios.get('http://localhost:5000/management/get_login_status/', 
+  axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/management/get_login_status/', 
   { withCredentials: true })
     .then(response => {
       const LoggedIn = response.data.result;

@@ -103,7 +103,7 @@ export default class Home extends Component {
 
 
     getLastReleasProduct(){
-        axios.get('http://localhost:5000/product/last-release')
+        axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/product/last-release', {withCredentials: true})
         .then(response => {
             this.setState({
                 lastRelease: response.data.result
