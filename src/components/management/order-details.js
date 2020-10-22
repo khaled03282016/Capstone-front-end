@@ -38,7 +38,7 @@ export default class OrderDetails extends Component{
 
     handleGetProducts(){
     this.props.orderDetails.list_of_orders.map(product=>{
-                axios.get(`http://localhost:5000/get/${product.product_id}`)
+                axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/get/${product.product_id}`)
                 .then(response=>{
                   if(response.status===200){
                       this.listProductsOrdered(response.data.result, product.quantity, product.size)

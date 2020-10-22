@@ -17,7 +17,7 @@ export default class OrdersHistory extends Component{
 
 
     handleGetOrders(){
-        axios.get(`http://localhost:5000/orders/members/history/${this.props.eMail}`)
+        axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/orders/members/history/${this.props.eMail}`)
         .then(response=>{
             this.setState({
                 orders: [...response.data.result]
@@ -31,7 +31,7 @@ export default class OrdersHistory extends Component{
 
 
     handleGetOrderDetails(orderSelected){
-        axios.get(`http://localhost:5000/order/order-details/${orderSelected.order_id}`)
+        axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/order/order-details/${orderSelected.order_id}`)
         .then(response=>{
             this.props.handleOrderDetails(response.data.result)
             this.props.history.push('/order-history-details')

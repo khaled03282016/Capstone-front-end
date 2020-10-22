@@ -147,7 +147,7 @@ export default class Home extends Component {
         this.props.handleAddToListCart(productAddedToCart);
 
         if (this.props.clientLoggedInStatus === "NOT_LOGGED_IN"){
-        axios.post('http://localhost:5000/shop/cart', 
+        axios.post('https://kcom-ecommerce-shop-api.herokuapp.com/shop/cart', 
             {"id": productAddedToCart.product_id, "size": productAddedToCart.size, 
             "quantity": productAddedToCart.quantity, "price": productAddedToCart.price},
             { withCredentials: true })
@@ -165,7 +165,7 @@ export default class Home extends Component {
                 console.log('error creating session', error)
             });}
             else{
-                axios.patch('http://localhost:5000/shop/cart/members_cart_shop', 
+                axios.patch('https://kcom-ecommerce-shop-api.herokuapp.com/shop/cart/members_cart_shop', 
                 {"id": productAddedToCart.product_id, "size": productAddedToCart.size, 
                 "quantity": productAddedToCart.quantity, "price": productAddedToCart.price, 
                 'email': this.props.eMail},
@@ -195,7 +195,7 @@ export default class Home extends Component {
 
 
     handleGetProductsSelected(title, category ){
-        axios.get(`http://localhost:5000/get/${title}/${category}`)
+        axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/get/${title}/${category}`)
           .then(response=>{
             this.setState({
                 listProductByTitle : response.data.result,

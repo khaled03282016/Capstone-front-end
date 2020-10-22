@@ -103,7 +103,7 @@ export default class App extends Component {
   }
 
   handleGetProduct(category){
-    axios.get(`http://localhost:5000/get/product/${category}`)
+    axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/get/product/${category}`)
       .then(response=>{
         this.setState({
           productsSelected : response.data.result,
@@ -206,7 +206,7 @@ handleClientUnSuccessfulLoggedIn(){
   })}
 
 getClientLoginStatus(){
-axios.get('http://localhost:5000/client/get_login_status/', 
+axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/client/get_login_status/', 
 { withCredentials: true })
   .then(response => {
     const LoggedIn = response.data.result.status;
@@ -245,7 +245,7 @@ axios.get('http://localhost:5000/client/get_login_status/',
 
  
  handeleDeleteMembersCartItems(){
-   axios.patch(`http://localhost:5000/shop/delete/member_cart_session/${this.state.eMail}`, {withCredentials: true})
+   axios.patch(`https://kcom-ecommerce-shop-api.herokuapp.com/shop/delete/member_cart_session/${this.state.eMail}`, {withCredentials: true})
    .then(response=>{
     this.setState({
       listProductToBuy:[],
@@ -258,7 +258,7 @@ axios.get('http://localhost:5000/client/get_login_status/',
  }
 
  handeleDeleteSessionCartItems(){
-  axios.delete('http://localhost:5000/shop/delete/cart_session', {withCredentials: true})
+  axios.delete('https://kcom-ecommerce-shop-api.herokuapp.com/shop/delete/cart_session', {withCredentials: true})
   .then(response=>{
     this.setState({
       listProductToBuy:[],
@@ -272,7 +272,7 @@ axios.get('http://localhost:5000/client/get_login_status/',
 
 
  handleGetGuestsProduct(){
-    axios.get('http://localhost:5000/shop/cart/get_guest_products', {withCredentials: true})
+    axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/shop/cart/get_guest_products', {withCredentials: true})
    .then(response=>{
      if (response.data.result !== 'not found'){
       this.setState({
@@ -295,7 +295,7 @@ axios.get('http://localhost:5000/client/get_login_status/',
 
  handleDeleteCartProduct(product_id){
  if (this.state.clientLoggedInStatus==="NOT_LOGGED_IN"){  
-   axios.delete(`http://localhost:5000/shop/cart/delete_guest_cart_shop/${product_id}`, {withCredentials: true})
+   axios.delete(`https://kcom-ecommerce-shop-api.herokuapp.com/shop/cart/delete_guest_cart_shop/${product_id}`, {withCredentials: true})
    .then(response=>{
     if (response.status===200){
       this.handleGetGuestsProduct();
@@ -306,7 +306,7 @@ axios.get('http://localhost:5000/client/get_login_status/',
    })}
 
    else{
-    axios.patch(`http://localhost:5000//shop/cart/remove_members_cart_shop/${this.state.eMail}/${product_id}`, {withCredentials: true})
+    axios.patch(`https://kcom-ecommerce-shop-api.herokuapp.com/shop/cart/remove_members_cart_shop/${this.state.eMail}/${product_id}`, {withCredentials: true})
     .then(response=>{
      if (response.data.result===1){
        this.getMembersCart();
@@ -320,7 +320,7 @@ axios.get('http://localhost:5000/client/get_login_status/',
  }
 
  getMembersCart(){
-    axios.get(`http://localhost:5000/shop/cart/get_members_products/${this.state.eMail}`, {withCredentials: true})
+    axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/shop/cart/get_members_products/${this.state.eMail}`, {withCredentials: true})
   .then(response=>{
         this.setState({
        listProductToBuy: response.data.result.cart,
@@ -371,7 +371,7 @@ handleGetOrderConfirmed(order){
 
 
 handelLogOut(){
-  axios.delete('http://localhost:5000/management/admin-auth/logout/', { withCredentials: true })
+  axios.delete('https://kcom-ecommerce-shop-api.herokuapp.com/management/admin-auth/logout/', { withCredentials: true })
   .then(response =>{
     if (!response.data.result){
       this.setState({
@@ -388,7 +388,7 @@ handelLogOut(){
 
 
 handelClientLogOut(){
-  axios.delete('http://localhost:5000/client/auth/logout/', { withCredentials: true })
+  axios.delete('https://kcom-ecommerce-shop-api.herokuapp.com/client/auth/logout/', { withCredentials: true })
   .then(response =>{
     if (!response.data.result){
       this.setState({

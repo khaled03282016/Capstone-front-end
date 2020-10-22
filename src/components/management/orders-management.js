@@ -19,7 +19,7 @@ export default class OrdersManagement extends Component {
 
 
     handleGetOrders(){
-        axios.get("http://localhost:5000/orders/get_orders")
+        axios.get("https://kcom-ecommerce-shop-api.herokuapp.com/orders/get_orders")
         .then(response=>{
             this.setState({
                 orders: [...response.data.result]
@@ -36,7 +36,7 @@ export default class OrdersManagement extends Component {
     }
 
     handleGetOrderDetails(orderSelected){
-        axios.get(`http://localhost:5000/order/order-details/${orderSelected.order_id}`)
+        axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/order/order-details/${orderSelected.order_id}`)
         .then(response=>{
             this.props.handleOrderDetails(response.data.result)
             this.props.history.push('/order-details')

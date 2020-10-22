@@ -61,7 +61,7 @@ export default class Shipement extends Component{
     }
 
     handlePayment(){
-        axios.patch("http://localhost:5000/shop/shipment/shipment_informaion",
+        axios.patch("https://kcom-ecommerce-shop-api.herokuapp.com/shop/shipment/shipment_informaion",
         {   "logged_in_status": this.props.clientLoggedInStatus, 
             "email": this.props.eMail,
             "guest_email": this.state.eMail,

@@ -76,7 +76,7 @@ export default class ProductsManagement extends Component {
     
 
     handleGetOneProduct(){
-        axios.get(`http://localhost:5000/get/${this.state.Id}`)
+        axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/get/${this.state.Id}`)
           .then(response => {
             this.setState({
             product: response.data.result,
@@ -109,7 +109,7 @@ export default class ProductsManagement extends Component {
     }
 
     handleDeleteProduct(productItem){
-        axios.delete(`http://localhost:5000/delete/${productItem.id}`,
+        axios.delete(`https://kcom-ecommerce-shop-api.herokuapp.com/delete/${productItem.id}`,
         { withCredentials: true })
             .then(response =>{
             if(this.state.idSelcted === true){
@@ -165,7 +165,7 @@ export default class ProductsManagement extends Component {
 
 
     handelGetProductsSelected(){
-        axios.get(`http://localhost:5000/get/${this.state.Title}/${this.state.Category}`)
+        axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/get/${this.state.Title}/${this.state.Category}`)
           .then(response => {
             this.setState({
             productsSelected: [...response.data.result],
@@ -188,7 +188,7 @@ export default class ProductsManagement extends Component {
 
 
     getProducts() {
-        axios.get("http://localhost:5000/get")
+        axios.get("https://kcom-ecommerce-shop-api.herokuapp.com/get")
           .then(response => {
             this.setState({
             products: [...response.data.result]

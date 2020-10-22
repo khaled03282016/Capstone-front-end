@@ -53,14 +53,14 @@ export default class SignUpClient extends Component {
     handleSubmit(event){
         event.preventDefault();
         
-        axios.post('http://localhost:5000/client/signup',
+        axios.post('https://kcom-ecommerce-shop-api.herokuapp.com/client/signup',
         this.formSignUp(), 
         { withCredentials: true })
         .then(response =>{
            if (response.status === 200){
             this.props.handleCloseModal();
 
-            axios.post('http://localhost:5000/client/auth/session', 
+            axios.post('https://kcom-ecommerce-shop-api.herokuapp.com/client/auth/session', 
             {"email": this.state.email, "password": this.state.password},
             { withCredentials: true })
             .then(response =>{

@@ -58,7 +58,7 @@ export default class ProductForm extends Component{
       image_2 : "",
       image_3 : "",
       editMode: false,
-      apiUrl: 'http://localhost:5000/test',
+      apiUrl: 'https://kcom-ecommerce-shop-api.herokuapp.com/test',
       apiAction:'post',
 
            
@@ -208,7 +208,7 @@ build_input( name, value){
 
 
 handleDeleteImage(image_order){
-  axios.patch(`http://localhost:5000/delete_image/${this.state.Id}/${image_order}`, 
+  axios.patch(`https://kcom-ecommerce-shop-api.herokuapp.com/delete_image/${this.state.Id}/${image_order}`, 
   { withCredentials: true })
     .then(response=>{
       this.setState({
@@ -364,7 +364,7 @@ componentDidUpdate() {
             image_2_url : image_2 || "",
             image_3_url : image_3 || "",
             editMode: true,
-            apiUrl: `http://localhost:5000/update_product/${id}`,
+            apiUrl: `https://kcom-ecommerce-shop-api.herokuapp.com/update_product/${id}`,
             apiAction: 'patch'
     })
   }

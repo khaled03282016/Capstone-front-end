@@ -14,7 +14,7 @@ export default class  ShopCartItem extends Component{
     }
 
     getProductById(product_id){
-        axios.get(`http://localhost:5000/get/${product_id}`, {withCredentials: true})
+        axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/get/${product_id}`, {withCredentials: true})
         .then(response => {
         this.setState({
             product: response.data.result

@@ -29,7 +29,7 @@ export default class ClientLogin extends Component{
 
     handleSubmit(event){
         event.preventDefault();
-        axios.post('http://localhost:5000/client/auth/session', 
+        axios.post('https://kcom-ecommerce-shop-api.herokuapp.com/client/auth/session', 
         {"email": this.state.email, "password": this.state.password},
         { withCredentials: true })
         .then(response =>{
