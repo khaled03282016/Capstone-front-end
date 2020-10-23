@@ -153,6 +153,7 @@ export default class Home extends Component {
             { withCredentials: true })
 
             .then(response=>{
+                console.log("Shop cart response", response)
                 if (response.status===200){
                     return 'ok'
                 }
