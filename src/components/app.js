@@ -273,7 +273,7 @@ axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/client/get_login_status
 
 
  handleGetGuestsProduct(){
-    axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/shop/cart', {withCredentials: true})
+    axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/shop/cart/get_guest_products', {withCredentials: true})
    .then(response=>{
      console.log("cart shop session", response)
      if (response.data.result !== 'not found'){
