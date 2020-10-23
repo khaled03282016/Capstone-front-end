@@ -33,6 +33,7 @@ export default class ClientLogin extends Component{
         {"email": this.state.email, "password": this.state.password},
         { withCredentials: true })
         .then(response =>{
+            console.log("session  response", response)
             if(response.data.result.status === "created"){
                 this.props.handleSuccessfulLogin(this.state.email);
                 this.props.handleGetmembersCart()

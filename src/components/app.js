@@ -209,6 +209,7 @@ getClientLoginStatus(){
 axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/client/get_login_status/', 
 { withCredentials: true })
   .then(response => {
+    console.log("log in response", response)
     const LoggedIn = response.data.result.status;
     const LoggedInStatus = this.state.clientLoggedInStatus;
     if(LoggedIn && LoggedInStatus === "LOGGED_IN") {
