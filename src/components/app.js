@@ -172,6 +172,7 @@ export default class App extends Component {
   axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/management/get_login_status/', 
   { withCredentials: true })
     .then(response => {
+      console.log("admin log in response", response)
       const LoggedIn = response.data.result;
       const LoggedInStatus = this.state.loggedInStatus;
       if(LoggedIn && LoggedInStatus === "LOGGED_IN") {
