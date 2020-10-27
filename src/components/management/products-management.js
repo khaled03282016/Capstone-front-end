@@ -112,7 +112,7 @@ export default class ProductsManagement extends Component {
         axios.delete(`https://kcom-ecommerce-shop-api.herokuapp.com/delete/${productItem.id}`,
         { withCredentials: true })
             .then(response =>{
-            if(this.state.idSelcted === true){
+            if(this.state.idSelcted === true ){
                 this.setState({
                     product: '',
                     idSelcted: false   
