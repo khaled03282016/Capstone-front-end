@@ -33,8 +33,8 @@ export default class login extends Component{
         {"user_name": this.state.userName, "password": this.state.password},
         { withCredentials: true })
         .then(response =>{
-            console.log("get log in status", response)
-            if(response.data.result===true){
+            console.log("admin session", response)
+            if(response.data.result==='created'){
                 this.props.handleSuccessfulLogin();
             }else {
                 this.setState({
