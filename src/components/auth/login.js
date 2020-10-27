@@ -29,7 +29,7 @@ export default class login extends Component{
 
     handleSubmit(event){
         event.preventDefault();
-        axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/management/admin-auth/session', 
+        axios.post('https://kcom-ecommerce-shop-api.herokuapp.com/management/admin-auth/session', 
         {"user_name": this.state.userName, "password": this.state.password},
         { withCredentials: true })
         .then(response =>{
