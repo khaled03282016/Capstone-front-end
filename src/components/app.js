@@ -169,8 +169,7 @@ export default class App extends Component {
     })}
   
  getLoginStatus(){
-  axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/management/get_login_status/', 
-  { withCredentials: true })
+  axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/management/get_login_status/')
     .then(response => {
       console.log("logged in status", response)
       const LoggedIn = response.data.result;
