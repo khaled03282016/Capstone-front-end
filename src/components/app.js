@@ -376,6 +376,7 @@ handleGetOrderConfirmed(order){
 handelLogOut(){
   axios.delete('https://kcom-ecommerce-shop-api.herokuapp.com/management/admin-auth/logout/', { withCredentials: true })
   .then(response =>{
+    console.log('admin log out', response)
     if (!response.data.result){
       this.setState({
         loggedInStatus: "NOT_LOGGED_IN",
