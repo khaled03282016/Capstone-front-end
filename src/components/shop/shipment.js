@@ -3,6 +3,7 @@ import axios from 'axios';
 
 
 import Summary from "./summary"
+import {API_URL} from '../../helpers/api';
 
 
 export default class Shipement extends Component{
@@ -61,7 +62,7 @@ export default class Shipement extends Component{
     }
 
     handlePayment(){
-        axios.patch("https://kcom-ecommerce-shop-api.herokuapp.com/shop/shipment/shipment_informaion",
+        axios.patch(`${API_URL}/shop/shipment/shipment_informaion`,
         {   "logged_in_status": this.props.clientLoggedInStatus, 
             "email": this.props.eMail,
             "guest_email": this.state.eMail,

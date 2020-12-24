@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import {API_URL} from '../../helpers/api';
 import Category from './category';
 import ProductsList from './product-item';
 import ProductInformation from './one_product';
@@ -103,7 +103,7 @@ export default class Home extends Component {
 
 
     getLastReleasProduct(){
-        axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/product/last-release', {withCredentials: true})
+        axios.get(`${API_URL}/product/last-release`, {withCredentials: true})
         .then(response => {
             this.setState({
                 lastRelease: response.data.result
@@ -147,7 +147,7 @@ export default class Home extends Component {
         this.props.handleAddToListCart(productAddedToCart);
 
         if (this.props.clientLoggedInStatus === "NOT_LOGGED_IN"){
-        axios.post('https://kcom-ecommerce-shop-api.herokuapp.com/shop/cart', 
+        axios.post(`${API_URL}/shop/cart`, 
             {"id": productAddedToCart.product_id, "size": productAddedToCart.size, 
             "quantity": productAddedToCart.quantity, "price": productAddedToCart.price},
             { withCredentials: true })
@@ -166,7 +166,7 @@ export default class Home extends Component {
                 console.log('error creating session', error)
             });}
             else{
-                axios.patch('https://kcom-ecommerce-shop-api.herokuapp.com/shop/cart/members_cart_shop', 
+                axios.patch(`${API_URL}/shop/cart/members_cart_shop`, 
                 {"id": productAddedToCart.product_id, "size": productAddedToCart.size, 
                 "quantity": productAddedToCart.quantity, "price": productAddedToCart.price, 
                 'email': this.props.eMail},
@@ -196,7 +196,7 @@ export default class Home extends Component {
 
 
     handleGetProductsSelected(title, category ){
-        axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/get/${title}/${category}`)
+        axios.get(`${API_URL}/get/${title}/${category}`)
           .then(response=>{
             this.setState({
                 listProductByTitle : response.data.result,

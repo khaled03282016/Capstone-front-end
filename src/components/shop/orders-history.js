@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {API_URL} from '../../helpers/api';
 
 
 import ListOfOrders from '../management/list-of-orders'
@@ -17,7 +18,7 @@ export default class OrdersHistory extends Component{
 
 
     handleGetOrders(){
-        axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/orders/members/history/${this.props.eMail}`)
+        axios.get(`${API_URL}/orders/members/history/${this.props.eMail}`)
         .then(response=>{
             this.setState({
                 orders: [...response.data.result]
@@ -31,7 +32,7 @@ export default class OrdersHistory extends Component{
 
 
     handleGetOrderDetails(orderSelected){
-        axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/order/order-details/${orderSelected.order_id}`)
+        axios.get(`${API_URL}/order/order-details/${orderSelected.order_id}`)
         .then(response=>{
             this.props.handleOrderDetails(response.data.result)
             this.props.history.push('/order-history-details')

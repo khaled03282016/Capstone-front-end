@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faSignOutAlt, faEdit, faAt, faUnlockAlt, faUsersCog, faShoppingCart, faLeaf
  } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
+import {API_URL} from '../helpers/api';
 
 import Management from './management/management';
 import ProductsManagement from './management/products-management';
@@ -103,7 +104,7 @@ export default class App extends Component {
   }
 
   handleGetProduct(category){
-    axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/get/product/${category}`)
+    axios.get(`${API_URL}/get/product/${category}`)
       .then(response=>{
         this.setState({
           productsSelected : response.data.result,
@@ -169,7 +170,7 @@ export default class App extends Component {
     })}
   
  getLoginStatus(){
-  axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/management/get_login_status/', {withCredentials: true})
+  axios.get(`${API_URL}/management/get_login_status`, {withCredentials: true})
     .then(response => {
       console.log("logged in status", response)
       const LoggedIn = response.data.result;
@@ -206,7 +207,7 @@ handleClientUnSuccessfulLoggedIn(){
   })}
 
 getClientLoginStatus(){
-axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/client/get_login_status/', 
+axios.get(`${API_URL}/client/get_login_status/`, 
 { withCredentials: true })
   .then(response => {
     console.log("log in response", response)
@@ -246,7 +247,7 @@ axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/client/get_login_status
 
  
  handeleDeleteMembersCartItems(){
-   axios.patch(`https://kcom-ecommerce-shop-api.herokuapp.com/shop/delete/member_cart_session/${this.state.eMail}`, {withCredentials: true})
+   axios.patch(`${API_URL}/shop/delete/member_cart_session/${this.state.eMail}`, {withCredentials: true})
    .then(response=>{
     this.setState({
       listProductToBuy:[],
@@ -259,7 +260,7 @@ axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/client/get_login_status
  }
 
  handeleDeleteSessionCartItems(){
-  axios.delete('https://kcom-ecommerce-shop-api.herokuapp.com/shop/delete/cart_session', {withCredentials: true})
+  axios.delete(`${API_URL}/shop/delete/cart_session`, {withCredentials: true})
   .then(response=>{
     this.setState({
       listProductToBuy:[],
@@ -273,7 +274,7 @@ axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/client/get_login_status
 
 
  handleGetGuestsProduct(){
-    axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/shop/cart/get_guest_products', {withCredentials: true})
+    axios.get(`${API_URL}/shop/cart/get_guest_products`, {withCredentials: true})
    .then(response=>{
      console.log("cart shop session", response)
      if (response.data.result !== 'not found'){
@@ -297,7 +298,7 @@ axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/client/get_login_status
 
  handleDeleteCartProduct(product_id){
  if (this.state.clientLoggedInStatus==="NOT_LOGGED_IN"){  
-   axios.delete(`https://kcom-ecommerce-shop-api.herokuapp.com/shop/cart/delete_guest_cart_shop/${product_id}`, {withCredentials: true})
+   axios.delete(`${API_URL}/shop/cart/delete_guest_cart_shop/${product_id}`, {withCredentials: true})
    .then(response=>{
     if (response.status===200){
       this.handleGetGuestsProduct();
@@ -308,7 +309,7 @@ axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/client/get_login_status
    })}
 
    else{
-    axios.patch(`https://kcom-ecommerce-shop-api.herokuapp.com/shop/cart/remove_members_cart_shop/${this.state.eMail}/${product_id}`, {withCredentials: true})
+    axios.patch(`${API_URL}/shop/cart/remove_members_cart_shop/${this.state.eMail}/${product_id}`, {withCredentials: true})
     .then(response=>{
      if (response.data.result===1){
        this.getMembersCart();
@@ -322,7 +323,7 @@ axios.get('https://kcom-ecommerce-shop-api.herokuapp.com/client/get_login_status
  }
 
  getMembersCart(){
-    axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/shop/cart/get_members_products/${this.state.eMail}`, {withCredentials: true})
+    axios.get(`${API_URL}/shop/cart/get_members_products/${this.state.eMail}`, {withCredentials: true})
   .then(response=>{
         this.setState({
        listProductToBuy: response.data.result.cart,
@@ -373,7 +374,7 @@ handleGetOrderConfirmed(order){
 
 
 handelLogOut(){
-  axios.delete('https://kcom-ecommerce-shop-api.herokuapp.com/management/admin-auth/logout/', { withCredentials: true })
+  axios.delete(`${API_URL}/management/admin-auth/logout/`, { withCredentials: true })
   .then(response =>{
     console.log('admin log out', response)
     if (!response.data.result){
@@ -391,7 +392,7 @@ handelLogOut(){
 
 
 handelClientLogOut(){
-  axios.delete('https://kcom-ecommerce-shop-api.herokuapp.com/client/auth/logout/', { withCredentials: true })
+  axios.delete(`${API_URL}/client/auth/logout/`, { withCredentials: true })
   .then(response =>{
     if (!response.data.result){
       this.setState({

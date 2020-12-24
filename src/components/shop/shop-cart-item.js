@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from "axios";
-
+import {API_URL} from '../../helpers/api';
 
 export default class  ShopCartItem extends Component{
     constructor(props){
@@ -14,7 +14,7 @@ export default class  ShopCartItem extends Component{
     }
 
     getProductById(product_id){
-        axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/get/${product_id}`, {withCredentials: true})
+        axios.get(`${API_URL}/get/${product_id}`, {withCredentials: true})
         .then(response => {
         this.setState({
             product: response.data.result

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {API_URL} from '../../helpers/api';
 
 
 export default class SignUpClient extends Component {
@@ -53,14 +54,14 @@ export default class SignUpClient extends Component {
     handleSubmit(event){
         event.preventDefault();
         
-        axios.post('https://kcom-ecommerce-shop-api.herokuapp.com/client/signup',
+        axios.post(`${API_URL}/client/signup`,
         this.formSignUp(), 
         { withCredentials: true })
         .then(response =>{
            if (response.status === 200){
             this.props.handleCloseModal();
 
-            axios.post('https://kcom-ecommerce-shop-api.herokuapp.com/client/auth/session', 
+            axios.post(`${API_URL}/client/auth/session`, 
             {"email": this.state.email, "password": this.state.password},
             { withCredentials: true })
             .then(response =>{

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import  { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from 'axios';
+import {API_URL} from '../../helpers/api';
 
 
 
@@ -29,7 +30,7 @@ export default class login extends Component{
 
     handleSubmit(event){
         event.preventDefault();
-        axios.post('https://kcom-ecommerce-shop-api.herokuapp.com/management/admin-auth/session', 
+        axios.post(`${API_URL}/management/admin-auth/session`, 
         {"user_name": this.state.userName, "password": this.state.password},
         { withCredentials: true })
         .then(response =>{

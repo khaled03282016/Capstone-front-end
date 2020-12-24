@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import ProductsOrdered from "./list-product-ordered";
 import Summary from './summary';
-
+import {API_URL} from '../../helpers/api';
 
 export default class OrderHistoryDetails extends Component{
     constructor(props){
@@ -32,7 +32,7 @@ export default class OrderHistoryDetails extends Component{
 
     handleGetProducts(){
     this.props.orderDetails.list_of_orders.map(product=>{
-                axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/get/${product.product_id}`)
+                axios.get(`${API_URL}/get/${product.product_id}`)
                 .then(response=>{
                   if(response.status===200){
                       this.listProductsOrdered(response.data.result, product.quantity, product.size)

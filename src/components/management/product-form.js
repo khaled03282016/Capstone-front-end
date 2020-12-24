@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import DropzoneComponent from "react-dropzone-component";
+import {API_URL} from '../../helpers/api';
 
 
 import "../../../node_modules/react-dropzone-component/styles/filepicker.css";
@@ -58,7 +59,7 @@ export default class ProductForm extends Component{
       image_2 : "",
       image_3 : "",
       editMode: false,
-      apiUrl: 'https://kcom-ecommerce-shop-api.herokuapp.com/test',
+      apiUrl: `${API_URL}/test`,
       apiAction:'post',
 
            
@@ -208,7 +209,7 @@ build_input( name, value){
 
 
 handleDeleteImage(image_order){
-  axios.patch(`https://kcom-ecommerce-shop-api.herokuapp.com/delete_image/${this.state.Id}/${image_order}`, 
+  axios.patch(`${API_URL}/delete_image/${this.state.Id}/${image_order}`, 
   { withCredentials: true })
     .then(response=>{
       this.setState({
@@ -364,7 +365,7 @@ componentDidUpdate() {
             image_2_url : image_2 || "",
             image_3_url : image_3 || "",
             editMode: true,
-            apiUrl: `https://kcom-ecommerce-shop-api.herokuapp.com/update_product/${id}`,
+            apiUrl: `${API_URL}/update_product/${id}`,
             apiAction: 'patch'
     })
   }

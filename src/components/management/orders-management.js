@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-
+import {API_URL} from '../../helpers/api';
 
 import DynamikLink from './links';
 import ListOfOrders from './list-of-orders';
@@ -19,7 +19,7 @@ export default class OrdersManagement extends Component {
 
 
     handleGetOrders(){
-        axios.get("https://kcom-ecommerce-shop-api.herokuapp.com/orders/get_orders")
+        axios.get(`${API_URL}/orders/get_orders`)
         .then(response=>{
             this.setState({
                 orders: [...response.data.result]
@@ -36,7 +36,7 @@ export default class OrdersManagement extends Component {
     }
 
     handleGetOrderDetails(orderSelected){
-        axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/order/order-details/${orderSelected.order_id}`)
+        axios.get(`${API_URL}/order/order-details/${orderSelected.order_id}`)
         .then(response=>{
             this.props.handleOrderDetails(response.data.result)
             this.props.history.push('/order-details')
