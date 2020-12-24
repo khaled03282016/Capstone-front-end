@@ -165,7 +165,7 @@ export default class ProductsManagement extends Component {
 
 
     handelGetProductsSelected(){
-        axios.get(`https://kcom-ecommerce-shop-api.herokuapp.com/get/${this.state.Title}/${this.state.Category}`)
+        axios.get(`${API_URL}/get/${this.state.Title}/${this.state.Category}`)
           .then(response => {
             this.setState({
             productsSelected: [...response.data.result],
